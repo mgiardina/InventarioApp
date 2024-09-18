@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 *ngIf="isEditMode">Editar Categoría</h2>
+    <h2 *ngIf="!isEditMode">Añadir Nueva Categoría</h2>
+  
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="form-container">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Nombre de la Categoría</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="categoryForm.get('name')?.hasError('required')">
+          El nombre de la categoría es obligatorio
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit" [disabled]="categoryForm.invalid">
+          {{ isEditMode ? 'Actualizar' : 'Crear' }} Categoría
+        </button>
+        <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

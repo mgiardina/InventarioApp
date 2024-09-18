@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Lista de Productos</h2>
+
+    <table mat-table [dataSource]="products" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="productID">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let product"> {{product.productID}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <td mat-cell *matCellDef="let product"> {{product.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let product" class="actions-column">
+        <button mat-raised-button color="primary" color="primary" (click)="editProduct(product.productID)">Editar</button>
+        <button mat-raised-button color="primary" color="warn"  (click)="deleteProduct(product.productID)">Eliminar</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['name', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['name', 'actions'];"></tr>
+    </table>
+
+    <div class="add-button-container">
+        <button mat-raised-button color="accent" (click)="addProduct()">Nuevo Producto</button>
+    </div>
+</div>

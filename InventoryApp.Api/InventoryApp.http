@@ -1,0 +1,72 @@
+@InventoryApp_HostAddress = http://localhost:5025
+
+### Categorías
+
+### Obtener todas las categorías
+GET {{InventoryApp_HostAddress}}/api/categories
+Accept: application/json
+
+### Obtener una categoría por ID
+GET {{InventoryApp_HostAddress}}/api/categories/1
+Accept: application/json
+
+### Crear una nueva categoría
+POST {{InventoryApp_HostAddress}}/api/categories
+Content-Type: application/json
+
+{
+  "name": "Electronics"
+}
+
+### Actualizar una categoría
+PUT {{InventoryApp_HostAddress}}/api/categories/1
+Content-Type: application/json
+
+{
+  "categoryID": 1,
+  "name": "Updated Electronics"
+}
+
+### Eliminar una categoría
+DELETE {{InventoryApp_HostAddress}}/api/categories/1
+
+### Productos
+
+### Obtener todos los productos
+GET {{InventoryApp_HostAddress}}/api/products
+Accept: application/json
+
+### Obtener un producto por ID
+GET {{InventoryApp_HostAddress}}/api/products/1
+Accept: application/json
+
+### Crear un nuevo producto
+POST {{InventoryApp_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Laptop",
+  "description": "High-end laptop",
+  "image": "laptop.png",
+  "categories": [
+    { "categoryID": 1 },
+    { "categoryID": 2 }
+  ]
+}
+
+### Actualizar un producto
+PUT {{InventoryApp_HostAddress}}/api/products/1
+Content-Type: application/json
+
+{
+  "productID": 1,
+  "name": "Updated Laptop",
+  "description": "Updated high-end laptop",
+  "image": "updated-laptop.png",
+  "categories": [
+    { "categoryID": 1 }
+  ]
+}
+
+### Eliminar un producto
+DELETE {{InventoryApp_HostAddress}}/api/products/1

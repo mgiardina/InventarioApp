@@ -1,0 +1,13 @@
+.container {
+    padding: 20px; /* Padding para separar el contenido de los bordes */
+  }
+  
+  .actions-column {
+    width: 150px; /* Reducir el ancho de la columna de acciones */
+  }
+  
+  .add-category-container {
+    text-align: right; /* Botón alineado a la derecha */
+    margin-top: 20px; /* Separación del botón de la tabla */
+  }
+  
